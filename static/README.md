@@ -45,4 +45,3 @@ Armazena imagens estáticas como:
 
 - imagens ilustrativas das páginas  
 
----
