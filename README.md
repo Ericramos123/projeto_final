@@ -45,9 +45,7 @@ A estrutura foi organizada para separar responsável de cada parte da aplicaçã
 - Listar todas as tarefas salvas  
 - Atualizar informações  
 - Remover registros  
-- Páginas renderizadas dinamicamente com Jinja2  
 - Interface básica com CSS e JavaScript  
-- Banco SQLite gerado automaticamente
 
 ---
 
