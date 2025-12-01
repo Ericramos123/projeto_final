@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block conteudo %}
+
+<form id="filtro">
+    <input type="text" name="busca" placeholder="Buscar..." id="busca">
+    <select name="categoria">
+        <option value="">Todas Categorias</option>
+        <option>Trabalho</option>
+        <option>Estudos</option>
+        <option>Pessoal</option>
+    </select>
+    <select name="ordem">
+        <option value="">Mais recentes</option>
+        <option value="alf">A-Z</option>
+    </select>
+
+    <button>Filtrar</button>
+</form>
+
+<ul class="lista">
+
+    {% if tarefas %}
+        {% for t in tarefas %}
+        <li class="{% if t.concluida %}done{% endif %}">
+
+            {% if t.imagem %}
+            <img src="{{ url_for('static', filename='img/' ~ t.imagem) }}">
+            {% endif %}
+
+            <strong>{{ t.titulo }}</strong> — {{ t.categoria }}
+
+            {% if t.descricao %}
+            <p>{{ t.descricao }}</p>
+            {% endif %}
+
+            <form action="{{ url_for('concluir', id=t.id) }}" method="POST" style="display:inline;">
+                <button>✔</button>
+            </form>
+
+            <a href="{{ url_for('editar', id=t.id) }}">✏</a>
+
+            <form action="{{ url_for('deletar', id=t.id) }}" method="POST" style="display:inline;">
+                <button>🗑</button>
+            </form>
+
+        </li>
+        {% endfor %}
+
+    {% else %}
+        <p style="text-align:center; padding: 20px; font-size: 18px;">Nenhuma tarefa encontrada.</p>
+    {% endif %}
+
+</ul>
+
+{% endblock %}
