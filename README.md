@@ -22,7 +22,7 @@ A estrutura foi organizada para separar responsável de cada parte da aplicaçã
 │
 ├── /templates
 │   ├── index.html
-│   └── outras_paginas.html   (outras páginas necessárias)
+│   └── outras páginas necessárias
 │
 ├── /static
 │   ├── /css
